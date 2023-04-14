@@ -1,0 +1,148 @@
+#pragma once
+
+// CPatient command target
+
+class CPatient : public CObject
+{
+
+private:
+
+	// varriable to store the first name of the patient
+	CString m_sFirstName = _T("");
+	// Variable to store the second name of the patient
+	CString m_sSecondName = _T("");
+	// variable to store age of the patient
+	int m_nAge = 0;
+	// Variable to store the address of patient
+	CString m_sAddress = _T("");
+	// variablee to store the medical record number of patient
+	CString m_sMedRecNum = _T("");
+	// variablee to store the date of birth of patient
+	CString m_sDOB = _T("");
+	// variablee to store the gender of patient
+	CString m_sGender = _T("");
+
+public:
+	/// <summary>
+	/// default constructor
+	/// </summary>
+	CPatient();
+
+	/// <summary>
+	/// paramaterized constructor
+	/// </summary>
+	CPatient(CString sFirstName ,CString sSecondName ,int nAge,CString sAddress ,CString sMedRecNum,CString sDOB ,CString sGender);
+
+	/// <summary>
+	/// destructor
+	/// </summary>
+	virtual ~CPatient();
+	/// <summary>
+	/// selialization s=declaraction
+	/// </summary>
+	DECLARE_SERIAL(CPatient);
+	/// <summary>
+	/// serialization 
+	/// </summary>
+	/// <param name="ar"></param>
+	virtual void Serialize(CArchive& ar);
+
+	/// <summary>
+	/// set the first name
+	/// </summary>
+	/// <param name="sFirstName"> first name of patient </param>
+	void SetFirstName(const CString& sFirstName);
+
+	/// <summary>
+	/// returns first name of patient
+	/// </summary>
+	/// <returns></returns>
+	CString GetFirstName();
+
+	/// <summary>
+	/// set the Second name of patient
+	/// </summary>
+	/// <param name="sFirstName"> second name of patient </param>
+	void SetSecondName(const CString& sSecondName);
+
+	/// <summary>
+	/// returns Second name of patient
+	/// </summary>
+	/// <returns></returns>
+	CString GetSecondName();
+
+
+	/// <summary>
+	/// set the Age of patient
+	/// </summary>
+	/// <param name="sFirstName"> Age of patient </param>
+	void SetAge(const int& nAge);
+
+	/// <summary>
+	/// returns Age of patient
+	/// </summary>
+	/// <returns></returns>
+	int GetAge();
+
+
+	/// <summary>
+	/// set the DOB of patient
+	/// </summary>
+	/// <param name="sFirstName"> DOB  of patient </param>
+	void SetDOB(const CString& sDob);
+
+	/// <summary>
+	/// returns DOB  of patient
+	/// </summary>
+	/// <returns></returns>
+	CString GetDOB();
+
+
+	/// <summary>
+	/// set the Gender of patient
+	/// </summary>
+	/// <param name="sFirstName"> Gender  of patient </param>
+	void SetGender(const CString& sGender);
+
+	/// <summary>
+	/// returns Gender of patient
+	/// </summary>
+	/// <returns></returns>
+	CString GetGender();
+
+	/// <summary>
+	/// set the Address of patient
+	/// </summary>
+	/// <param name="sFirstName"> Address  of patient </param>
+	void SetAddress(const CString& sAddress);
+
+	/// <summary>
+	/// returns Address of patient
+	/// </summary>
+	/// <returns></returns>
+	CString GetAddress();
+
+
+	/// <summary>
+	/// set the Medical Record Number of patient
+	/// </summary>
+	/// <param name="sFirstName"> Medical Record Number  of patient </param>
+	void SetMRN(const CString& sMRN);
+
+	/// <summary>
+	/// returns MRN of patient
+	/// </summary>
+	/// <returns></returns>
+	CString GetMRN();
+
+
+	/// <summary>
+	/// diaplay all details of patient
+	/// </summary>
+	CString GetAllDetails();
+
+
+
+};
+
+

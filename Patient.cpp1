@@ -1,0 +1,222 @@
+// Patient.cpp : implementation file
+//
+
+#include "pch.h"
+#include "PatientAppMod.h"
+#include "Patient.h"
+
+IMPLEMENT_SERIAL(CPatient,CObject,0)
+// CPatient
+/// <summary>
+/// default constructor
+/// </summary>
+CPatient::CPatient()
+{
+}
+
+/// <summary>
+/// paramaterized constructor
+/// </summary>
+CPatient::CPatient(CString sFirstName, CString sSecondName, int nAge, CString sAddress, CString sMedRecNum, CString sDOB, CString sGender)
+{
+	m_sFirstName = sFirstName;
+	m_sSecondName = sSecondName;
+	m_nAge = nAge;
+	m_sAddress = sAddress;
+	m_sMedRecNum = sMedRecNum;
+	m_sDOB = sDOB;
+	m_sGender = sGender;
+
+}
+
+
+/// <summary>
+/// destructor
+/// </summary>
+CPatient::~CPatient()
+{
+}
+
+
+// CPatient member functions
+
+	/// <summary>
+	/// serialization 
+	/// </summary>
+	/// <param name="ar"></param>
+void CPatient::Serialize(CArchive& ar)
+{
+	if (ar.IsStoring())
+	{
+
+		ar << m_sFirstName;
+		ar << m_sSecondName;
+		ar << m_nAge;
+		ar << m_sDOB;
+		ar << m_sGender;
+		ar << m_sAddress;
+		ar << m_sMedRecNum;
+
+
+	}
+	else
+	{	
+		ar >> m_sFirstName;
+		ar >> m_sSecondName;
+		ar >> m_nAge;
+		ar >> m_sDOB;
+		ar >> m_sGender;
+		ar >> m_sAddress;
+		ar >> m_sMedRecNum;
+	}
+}
+
+/// <summary>
+/// set the first name
+/// </summary>
+/// <param name="sFirstName"> first name of patient </param>
+void CPatient::SetFirstName(const CString& sFirstName)
+{
+	m_sFirstName = sFirstName;
+}
+
+/// <summary>
+/// returns first name of patient
+/// </summary>
+/// <returns></returns>
+CString CPatient::GetFirstName()
+{
+	return m_sFirstName;
+}
+/// <summary>
+/// set the Second name of patient
+/// </summary>
+/// <param name="sFirstName"> second name of patient </param>
+void CPatient::SetSecondName(const CString& sSecondName)
+{
+	m_sSecondName = sSecondName;
+}
+/// <summary>
+/// returns Second name of patient
+/// </summary>
+/// <returns></returns>
+CString CPatient::GetSecondName()
+{
+	return m_sSecondName;
+}
+
+
+/// <summary>
+/// set the Age of patient
+/// </summary>
+/// <param name="sFirstName"> Age of patient </param>
+void CPatient::SetAge(const int& nAge)
+{
+	m_nAge = nAge;
+}
+
+/// <summary>
+/// returns Age of patient
+/// </summary>
+/// <returns></returns>
+int CPatient::GetAge()
+{
+	return m_nAge;
+}
+
+
+/// <summary>
+/// set the DOB of patient
+/// </summary>
+/// <param name="sFirstName"> DOB  of patient </param>
+void CPatient::SetDOB(const CString& sDob)
+{
+	m_sDOB = sDob;
+}
+
+/// <summary>
+/// returns DOB  of patient
+/// </summary>
+/// <returns></returns>
+CString CPatient::GetDOB()
+{
+	return m_sDOB;
+}
+
+
+/// <summary>
+/// set the Gender of patient
+/// </summary>
+/// <param name="sFirstName"> Gender  of patient </param>
+
+void CPatient::SetGender(const CString& sGender)
+{
+	m_sGender = sGender;
+}
+
+
+/// <summary>
+/// returns Gender of patient
+/// </summary>
+/// <returns></returns>
+CString CPatient::GetGender()
+{
+	return m_sGender;
+}
+
+/// <summary>
+/// set the Address of patient
+/// </summary>
+/// <param name="sFirstName"> Address  of patient </param>
+
+void CPatient::SetAddress(const CString& sAddress)
+{
+	m_sAddress = sAddress;
+}
+
+/// <summary>
+/// returns Address of patient
+/// </summary>
+/// <returns></returns>
+CString CPatient::GetAddress()
+{
+	return m_sAddress;
+}
+
+/// <summary>
+/// set the Medical Record Number of patient
+/// </summary>
+/// <param name="sFirstName"> Medical Record Number  of patient </param>
+
+void CPatient::SetMRN(const CString& sMRN)
+{
+	m_sMedRecNum = sMRN;
+}
+/// <summary>
+/// returns MRN of patient
+/// </summary>
+/// <returns></returns>
+CString CPatient::GetMRN()
+{
+	return m_sMedRecNum;
+}
+
+/// <summary>
+/// diaplay all details of patient
+/// </summary>
+/// /// <returns> string </returns>
+CString CPatient::GetAllDetails()
+{
+	CString sDetails = _T(" ");
+	CString sAge = _T(" ");
+	sAge.Format(_T("%d"), m_nAge);
+	sDetails += _T("\r\nName : ") + m_sFirstName + _T(" ") + m_sSecondName;
+	sDetails += _T("\r\nAge : ") + sAge;
+	sDetails += _T("\r\nD.O.B : ") + m_sDOB;
+	sDetails += _T("\r\nGender : ") + m_sGender;
+	sDetails += _T("\r\nMedical Record Number : ") + m_sMedRecNum;
+	sDetails += _T("\r\nAddress : ") + m_sAddress + _T("\r\n");
+	return sDetails;
+}
+
+
